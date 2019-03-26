@@ -22,4 +22,6 @@ urlpatterns = [
     re_path(r'^json/example/$', views.json_example_view),
     re_path(r'^json/cbv/$', views.JsonCBV.as_view()),
     re_path(r'^json/cbv2/$', views.JsonCBV2.as_view()),
+    re_path(r'^json/serialized/list/$', views.SerializedListView.as_view()),
+    re_path(r'^json/detailed/list/$', views.SerializedDetailView.as_view()),
 ]
