@@ -14,7 +14,7 @@ class StatusSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("This is way too long.")
 
     def validate(self, data):
-        content = data.get("content", None)
+        content = data.get('Content', None)
         print(content)
         if content == "":
             content = None
