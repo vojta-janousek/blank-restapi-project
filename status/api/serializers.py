@@ -15,9 +15,10 @@ class StatusSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         content = data.get("content", None)
+        print(content)
         if content == "":
             content = None
         image = data.get("image", None)
-        if content is None and image is None:
+        if ((content is None) and (image is None)):
             raise serializers.ValidationError("Content or image is required.")
         return data
