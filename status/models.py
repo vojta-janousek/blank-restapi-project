@@ -17,7 +17,7 @@ class StatusManager(models.Manager):
 
 class Status(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    content = models.TextField(null=True, blank=True)
+    summary = models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to=upload_status_image, null=True, blank=True)
     updated = models.DateTimeField(auto_now=True)
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -25,7 +25,7 @@ class Status(models.Model):
     objects = StatusManager()
 
     def __str__(self):
-        return str(self.content)[:50]
+        return str(self.summary)[:50]
 
     class Meta:
         verbose_name = 'Status post'
