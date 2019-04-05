@@ -7,4 +7,5 @@ urlpatterns = [
     # re_path(r'^(?P<pk>\d+)/update/$', views.StatusUpdateAPIView.as_view()),
     # re_path(r'^(?P<pk>\d+)/delete/$', views.StatusDeleteAPIView.as_view()),
     re_path(r'^$', views.StatusAPIView.as_view()),
+    re_path(r'^(?P<id>\d+)/$', views.StatusAPIDetailView.as_view()),
 ]

@@ -124,3 +124,5 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static-server', 'media-root')
 MEDIA_URL = '/media/'
+
+from blank_rest_project.restconf.main import *
