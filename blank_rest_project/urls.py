@@ -17,11 +17,8 @@ from django.contrib import admin
 from django.urls import path, re_path
 from django.conf.urls import include
 
-from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^api/status/', include('status.api.urls')),
-    re_path(r'^api/auth/jwt/$', obtain_jwt_token),
-    re_path(r'^api/auth/jwt/refresh/$', refresh_jwt_token),
+    re_path(r'^api/auth/', include('accounts.api.urls'))
 ]

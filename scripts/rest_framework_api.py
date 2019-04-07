@@ -2,25 +2,29 @@ import requests
 import json
 import os
 
+
 ENDPOINT = "http://127.0.0.1:8000/api/status/"
-AUTH_ENDPOINT = "http://127.0.0.1:8000/api/auth/jwt/"
+# AUTH_ENDPOINT = "http://127.0.0.1:8000/api/auth/jwt/"
+AUTH_ENDPOINT = "http://127.0.0.1:8000/api/auth/register/"
 REFRESH_ENDPOINT = AUTH_ENDPOINT + "refresh/"
 
 # cwd - current working directory
 image_path = os.path.join(os.getcwd(), "contact.png")
 
 data = {
-    'username': 'vojta',
-    'password': 'kobliha'
+    'username': 'vaclav',
+    'email': 'elemer@email.com',
+    'password': 'vaclavkobliha',
+    'password2': 'vaclavkobliha'
 }
 headers = {
     "Content-Type": "application/json",
+    # "Authorization": "JWT " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InZvanRhIiwiZXhwIjoxNTU0NjU5NDY1LCJlbWFpbCI6IiIsIm9yaWdfaWF0IjoxNTU0NjU5MTY1fQ.kQ6-oG9r6FNalds9LYjsk2kzYAyd4ibEWO8gBJ-0F0s"
 }
 
 r = requests.post(AUTH_ENDPOINT, data=json.dumps(data), headers=headers)
-token = r.json()['token']
+token = r.json() #['token']
 print(token)
-
 
 # refresh_data = {
 #     'token': token
@@ -31,21 +35,21 @@ print(token)
 
 # get_endpoint = ENDPOINT + str(12)
 
-headers = {
-    # "Content-Type": "application/json",
-    "Authorization": "JWT " + token,
-}
+# headers = {
+#     # "Content-Type": "application/json",
+#     "Authorization": "JWT " + token,
+# }
 
-with open(image_path, 'rb') as image:
-    file_data = {
-        'image': image
-    }
-    data = {
-        "summary": "very new content"
-    }
-    json_data = json.dumps(data)
-    posted_response = requests.post(ENDPOINT, data=data, headers=headers, files=file_data)
-    print(posted_response.text)
+# with open(image_path, 'rb') as image:
+#     file_data = {
+#         'image': image
+#     }
+#     data = {
+#         "summary": "very new content"
+#     }
+#     json_data = json.dumps(data)
+#     posted_response = requests.post(ENDPOINT, data=data, headers=headers, files=file_data)
+#     print(posted_response.text)
 #
 # r = requests.get(get_endpoint)
 # print(r.text)
