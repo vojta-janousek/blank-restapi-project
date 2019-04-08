@@ -12,10 +12,10 @@ REFRESH_ENDPOINT = AUTH_ENDPOINT + "refresh/"
 image_path = os.path.join(os.getcwd(), "contact.png")
 
 data = {
-    'username': 'vaclav',
-    'email': 'elemer@email.com',
-    'password': 'vaclavkobliha',
-    'password2': 'vaclavkobliha'
+    'username': 'ronald8',
+    'email': 'ronald8@email.com',
+    'password': 'ronaldkobliha',
+    'password2': 'ronaldkobliha'
 }
 headers = {
     "Content-Type": "application/json",
