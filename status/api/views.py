@@ -8,6 +8,7 @@ from django.shortcuts import get_object_or_404
 
 from .serializers import StatusSerializer
 from status.models import Status
+from accounts.api.permissions import IsOwnerOrReadOnly
 
 # class StatusListSearchAPIView(APIView):
 #     permission_classes = []
@@ -37,7 +38,7 @@ class StatusAPIDetailView(
         mixins.DestroyModelMixin,
         generics.RetrieveAPIView):
 
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
     # authentication_classes = []
     serializer_class = StatusSerializer
     queryset = Status.objects.all()
