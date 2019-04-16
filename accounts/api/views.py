@@ -7,6 +7,7 @@ from rest_framework.response import Response
 from rest_framework_jwt.settings import api_settings
 
 from accounts.api.serializers import UserRegisterSerializer
+from accounts.api.user.serializers import UserDetailSerializer
 from accounts.api.permissions import AnonPermissionOnly
 
 
