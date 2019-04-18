@@ -9,6 +9,7 @@ class StatusSerializer(serializers.ModelSerializer):
     uri = serializers.SerializerMethodField(read_only=True)
     # user = serializers.SerializerMethodField(read_only=True)
     user = UserPublicSerializer(read_only=True)
+    # username = serializers.SlugRelatedField(source='user', read_only=True, slug_field='email')
     class Meta:
         model = Status
         fields = ('uri', 'id', 'user', 'summary', 'image')
